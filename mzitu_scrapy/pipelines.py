@@ -15,24 +15,26 @@ class MzituScrapyPipeline(object):
 
 class MzituImagePipeline(ImagesPipeline):
     def get_media_requests(self, item, info):
-        #print("get_media_requests")
+        print("get_media_requests")
         for image_url in item['image_urls']:
             reference = item['url']
-            print('get_media_requests',reference)
+            #print('get_media_requests',reference)
             yield Request(image_url,meta={'reference':reference})
 
     def item_completed(self, results, item, info):
         print("item_completed item_completed item_completed")
         image_paths = [x['path'] for ok, x in results if ok]
         if not image_paths:
-            print("item_completed item_completed item_comple222222222")
+            #print("item_completed item_completed item_comple222222222")
             raise DropItem("Item contains no images")
-        print("item_completed item_completed item_completed11111111")
+
+        #print("item_completed item_completed item_completed11111111")
         return item
 
-'''
-    def file_path(self, request, response=None, info=None):
-        item = request.meta['item']
-        print('file_path',item)
-        '''
+
+    #def file_path(self, request, response=None, info=None):
+     #   print("i am file path")
+        #item = request.meta['item']
+        #print('file_path',item)
+
 

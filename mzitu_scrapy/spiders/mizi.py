@@ -32,5 +32,7 @@ class MiziSpider(CrawlSpider):
         pic_url = response.xpath('//div[@class="main-image"]/p/a/img/@src').extract()[0]
         #print('pic_url',pic_url)
         self.img_urls.append(pic_url)
+        for i in self.img_urls:
+            print('get_image_url',i)
 
 
