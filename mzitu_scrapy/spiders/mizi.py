@@ -26,11 +26,11 @@ class MiziSpider(CrawlSpider):
         item['image_urls'] = self.img_urls
         yield item
 
-        print(response.url,"  ",max_num,"  ",title)
+        #print(response.url,"  ",max_num,"  ",title)
     def get_image_url(self,response):
-        print('response',response.url)
+        #print('response',response.url)
         pic_url = response.xpath('//div[@class="main-image"]/p/a/img/@src').extract()[0]
-        print('pic_url',pic_url)
+        #print('pic_url',pic_url)
         self.img_urls.append(pic_url)
 
 

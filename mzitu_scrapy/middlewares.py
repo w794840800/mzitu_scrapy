@@ -54,3 +54,9 @@ class MzituScrapySpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+class Mizitu(object):
+    def process_request(self,request,spider):
+        reference = request.meta.get('reference')
+        request.headers['referer'] = reference
+        print('process_request',reference)
+        print('process_request1', request.headers['referer'])

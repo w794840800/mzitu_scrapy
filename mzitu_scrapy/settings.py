@@ -52,9 +52,9 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'mzitu_scrapy.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'mzitu_scrapy.middlewares.Mizitu': 543,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -64,10 +64,12 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'mzitu_scrapy.pipelines.MzituScrapyPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'mzitu_scrapy.pipelines.MzituImagePipeline': 300,
+    #'mzitu_scrapy.pipelines.MzituScrapyPipeline': 30,
 
+}
+IMAGES_STORE = '/home/raise/PycharmProjects/mzitu_scrapy/'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
